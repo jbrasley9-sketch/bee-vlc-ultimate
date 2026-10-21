@@ -1,0 +1,33 @@
+name: Build Bee VLC Windows
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Récupère ton code
+        uses: actions/checkout@v4
+
+      - name: Installe Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Installe tout
+        run: npm install
+
+      - name: Fabrique les .exe
+        run: npm run build-win
+
+      - name: Sauvegarde les 2 exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: Bee-VLC-Windows
+          path: |
+            dist/*.exe
+            dist/*.msi
