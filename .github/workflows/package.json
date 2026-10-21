@@ -1,0 +1,25 @@
+{
+  "name": "bee-vlc-ultimate",
+  "version": "1.0.0",
+  "description": "Ton lecteur Bee VLC DVD HQ",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-win": "electron-builder --win nsis"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0"
+  },
+  "devDependencies": {
+    "electron": "^28.3.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.beevlc.ultimate",
+    "productName": "Bee VLC",
+    "win": {
+      "target": "nsis",
+      "icon": "icon.png"
+    }
+  }
+}
